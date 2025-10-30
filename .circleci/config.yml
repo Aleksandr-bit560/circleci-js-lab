@@ -33,11 +33,4 @@ jobs:
           command: npm install
       - run:
           name: Check code formatting with Prettier
-          command: npm run format:check
-
-workflows:
-  version: 2
-  test-and-format:
-    jobs:
-      - test
-      - format
+          command: npx prettier --check .
