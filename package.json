@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "test": "node --test"
+    "test": "node --test test_app.js"
   },
   "devDependencies": {
     "node": "^18.0.0"
