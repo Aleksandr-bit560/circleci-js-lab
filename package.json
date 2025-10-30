@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "test": "node --test test_app.js"
+    "test": "node --test test_app.js",
+    "format:check": "prettier --check .",
+    "format:fix": "prettier --write ."
   },
   "devDependencies": {
-    "node": "^18.0.0"
+    "prettier": "^3.0.0"
   }
 }

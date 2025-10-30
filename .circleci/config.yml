@@ -6,15 +6,38 @@ jobs:
       - image: cimg/node:18.17.0
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - dependencies-{{ checksum "package.json" }}
       - run:
           name: Install dependencies
           command: npm install
+      - save_cache:
+          key: dependencies-{{ checksum "package.json" }}
+          paths:
+            - node_modules
       - run:
           name: Run tests
           command: npm test
 
+  format:
+    docker:
+      - image: cimg/node:18.17.0
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - dependencies-{{ checksum "package.json" }}
+      - run:
+          name: Install dependencies
+          command: npm install
+      - run:
+          name: Check code formatting with Prettier
+          command: npm run format:check
+
 workflows:
   version: 2
-  build-and-test:
+  test-and-format:
     jobs:
       - test
+      - format
