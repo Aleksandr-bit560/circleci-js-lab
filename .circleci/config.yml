@@ -33,7 +33,7 @@ jobs:
           command: npm install
       - run:
           name: Check code formatting with Prettier
-          command: npx prettier --check .
+          command: ./node_modules/.bin/prettier --check .
 
 workflows:
   test-and-format:
