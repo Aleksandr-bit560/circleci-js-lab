@@ -21,19 +21,19 @@ jobs:
           command: npm test
 
   format:
-    docker:
-      - image: cimg/node:18.17.0
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - dependencies-{{ checksum "package.json" }}
-      - run:
-          name: Install dependencies
-          command: npm install
-      - run:
-          name: Check code formatting with Prettier
-          command: ./node_modules/.bin/prettier --check .
+  docker:
+    - image: cimg/node:18.17.0
+  steps:
+    - checkout
+    - restore_cache:
+        keys:
+          - dependencies-{{ checksum "package.json" }}
+    - run:
+        name: Install dependencies
+        command: npm install
+    - run:
+        name: Check code formatting with Prettier
+        command: npx --package=prettier prettier --check .
 
 workflows:
   test-and-format:
