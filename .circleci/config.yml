@@ -34,3 +34,9 @@ jobs:
       - run:
           name: Check code formatting with Prettier
           command: npx prettier --check .
+
+workflows:
+  test-and-format:
+    jobs:
+      - test
+      - format
