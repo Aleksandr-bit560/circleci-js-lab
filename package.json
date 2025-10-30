@@ -1,0 +1,11 @@
+{
+  "name": "circleci-js-lab",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "node": "^18.0.0"
+  }
+}
